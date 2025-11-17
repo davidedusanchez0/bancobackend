@@ -76,6 +76,7 @@ public class CajeroController {
      * Endpoint para Tarea del Cajero: "Ingresar dinero validando DUI"
 
      */
+
     @PostMapping("/abonar")
     public ResponseEntity<?> abonarConValidacion(@RequestBody CajeroTransaccionDTO dto) {
         try {
@@ -109,7 +110,6 @@ public class CajeroController {
             return ResponseEntity.status(500).body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
-
     /**
      * Metodo de ayuda para la logica de validacion del Cajero
      */
@@ -134,6 +134,10 @@ public class CajeroController {
             nuevoCliente.setDui(clienteDTO.getDui());
             nuevoCliente.setDireccion(clienteDTO.getDireccion());
             nuevoCliente.setSalario(clienteDTO.getSalario());
+            nuevoCliente.setCorreo(clienteDTO.getCorreo());
+            nuevoCliente.setEstadoCivil(clienteDTO.getEstadoCivil());
+            nuevoCliente.setUsuario(clienteDTO.getUsuario());
+            nuevoCliente.setFechaNacimiento(clienteDTO.getFechaNacimiento());
             if (clienteDTO.getPassword() != null && !clienteDTO.getPassword().trim().isEmpty()) {
                 nuevoCliente.setPassword(clienteDTO.getPassword());
             }
@@ -151,10 +155,12 @@ public class CajeroController {
     @PostMapping("/dependientes")
     public ResponseEntity<?> registrarDependiente(@RequestBody DependienteRegistroDTO dto) {
         try {
-            Rol rol = rolRepository.findById(dto.getRolId())
-                    .orElseThrow(() -> new NoSuchElementException("Rol no encontrado con ID: " + dto.getRolId()));
+            Rol rol = rolRepository.findById(2)
+                    .orElseThrow(() -> new NoSuchElementException("Rol no encontrado con ID: 2"));
             Dependiente nuevoDependiente = new Dependiente();
             nuevoDependiente.setNombre(dto.getNombre());
+            nuevoDependiente.setUsuario(dto.getUsuario());
+            nuevoDependiente.setPassword(dto.getPassword());
             nuevoDependiente.setRol(rol);
             Dependiente dependienteGuardado = dependienteRepository.save(nuevoDependiente);
             DependienteDTO dependienteDTO = new DependienteDTO(dependienteGuardado);

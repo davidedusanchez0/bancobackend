@@ -1,6 +1,7 @@
 package com.bancoagricultura.bancobackend.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class ClienteRegistroDTO {
     private String nombre;
@@ -10,6 +11,11 @@ public class ClienteRegistroDTO {
     private String direccion;
     private BigDecimal salario;
     private String password;
+    private String correo;
+    private String estadoCivil;
+    private String usuario;
+    private LocalDate fechaNacimiento;
+
 
     // --- Getters y Setters ---
     public String getNombre() { return nombre; }
@@ -26,4 +32,16 @@ public class ClienteRegistroDTO {
     public void setSalario(BigDecimal salario) { this.salario = salario; }
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+    public String getCorreo() { return correo; }
+    public void  setCorreo(String correo) {this.correo= correo;}
+    public String getEstadoCivil() { return estadoCivil;}
+
+    public void  setEstadoCivil(String estadoCivil) {this.estadoCivil= estadoCivil;}
+    public String getUsuario() { return usuario;}
+    public void  setUsuario (String usuario) {this.usuario= usuario;}
+
+    public LocalDate getFechaNacimiento() {return fechaNacimiento;}
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
+
+
 }

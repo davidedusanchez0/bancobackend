@@ -3,7 +3,8 @@ package com.bancoagricultura.bancobackend.dto;
 public class DependienteRegistroDTO {
 
     private String nombre;
-    private Integer rolId; // El ID del Rol "Dependiente"
+    private String usuario;
+    private String password;
 
     // --- Getters y Setters ---
     public String getNombre() {
@@ -14,11 +15,19 @@ public class DependienteRegistroDTO {
         this.nombre = nombre;
     }
 
-    public Integer getRolId() {
-        return rolId;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setRolId(Integer rolId) {
-        this.rolId = rolId;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
